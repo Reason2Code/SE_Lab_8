@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using SchoolAppCoreRazor.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddRazorPages();
+builder.Services.AddDbContext<SchoolContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("SchoolDBConnectionString")));
 
 var app = builder.Build();
 
